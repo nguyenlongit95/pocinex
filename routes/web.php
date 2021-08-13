@@ -12,27 +12,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['prefix' => '/admin', 'namespace' => '\App\Http\Controllers\Auth'], function () {
     Route::get('/login', 'LoginController@login');
     Route::post('/login', 'LoginController@postLogin');
     Route::get('/logout', 'LoginController@logout');
 });
+//
+//Route::get('login', '\App\Http\Controllers\FrontEnd\LoginController@login');
+//Route::post('login', '\App\Http\Controllers\FrontEnd\LoginController@postLogin');
+//Route::get('register', '\App\Http\Controllers\FrontEnd\LoginController@register');
+//Route::post('register', '\App\Http\Controllers\FrontEnd\LoginController@postRegister');
+//Route::get('logout', '\App\Http\Controllers\FrontEnd\LoginController@logout');
+//Route::get('forgot-password', '\App\Http\Controllers\FrontEnd\LoginController@forgotPassword');
+//Route::post('forgot-password', '\App\Http\Controllers\FrontEnd\LoginController@forgotPassword');
 
-Route::get('login', '\App\Http\Controllers\FrontEnd\LoginController@login');
-Route::post('login', '\App\Http\Controllers\FrontEnd\LoginController@postLogin');
-Route::get('register', '\App\Http\Controllers\FrontEnd\LoginController@register');
-Route::post('register', '\App\Http\Controllers\FrontEnd\LoginController@postRegister');
-Route::get('logout', '\App\Http\Controllers\FrontEnd\LoginController@logout');
-Route::get('forgot-password', '\App\Http\Controllers\FrontEnd\LoginController@forgotPassword');
-Route::post('forgot-password', '\App\Http\Controllers\FrontEnd\LoginController@forgotPassword');
-
-Route::group(['middleware' => 'checkUserLogin', 'namespace' => 'FrontEnd'], function () {
-    // Route front end has required login
+Route::group(['namespace' => 'FrontEnd'], function () {
+    Route::get('/', 'IndexController@index');
+    Route::get('/select-coin', 'IndexController@selectCoin');
+    Route::get('/find-coin', 'IndexController@findCoin');
+    Route::get('/tin-tuc/{slug}', 'IndexController@showTinTuc');
+    Route::get('/dai-ly', 'IndexController@daiLy');
 });
 
 /**
@@ -41,6 +40,7 @@ Route::group(['middleware' => 'checkUserLogin', 'namespace' => 'FrontEnd'], func
  */
 Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashBoardController@index');
+    Route::get('/render-site-map', 'DashBoardController@renderSiteMap');
 
     Route::group(['prefix' => 'widgets'], function () {
         Route::get('/index', 'WidgetController@index');
@@ -49,40 +49,42 @@ Route::group(['middleware' => 'checkAdminLogin', 'prefix' => 'admin', 'namespace
         Route::post('create','WidgetController@create');
     });
 
-    Route::group(['prefix' => 'paygates'], function () {
-        Route::get('index', 'PaygateController@index');
-        Route::get('{id}/edit', 'PaygateController@edit');
-        Route::post('{id}/update', 'PaygateController@update');
+    Route::group(['prefix' => 'tien-ao'], function () {
+        Route::get('/', 'VirualMonneyController@index');
+        Route::get('/add', 'VirualMonneyController@create');
+        Route::post('/create', 'VirualMonneyController@store');
+        Route::get('/{id}/delete', 'VirualMonneyController@destroy');
+        Route::get('/{id}/edit', 'VirualMonneyController@edit');
+        Route::post('/{id}/edit', 'VirualMonneyController@update');
     });
 
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('index', 'UserController@index');
-        Route::get('{id}/edit', 'UserController@edit');
-        Route::post('{id}/update', 'UserController@update');
-        Route::get('{id}/delete', 'UserController@delete');
+    Route::group(['prefix' => 'ty-suat-ngan-hang'], function () {
+        Route::get('/', 'BankController@index');
+        Route::post('/add/usd', 'BankController@addUSD');
+        Route::post('/add/vnd', 'BankController@addVND');
+        Route::post('/edit/usd', 'BankController@editUSD');
+        Route::post('/edit/vnd', 'BankController@editVND');
     });
 
-    Route::group(['prefix' => 'menus'], function () {
-        Route::get('index', 'MenuController@index');
-        Route::get('{id}/edit', 'MenuController@edit');
-        Route::post('{id}/update', 'MenuController@update');
-        Route::post('create', 'MenuController@store');
-        Route::get('show/{id}', 'MenuController@show');
-        Route::get('create', 'MenuController@create');
-        Route::get('{id}/delete', 'MenuController@destroy');
-        Route::get('add', 'MenuController@add');
+    Route::group(['prefix' => 'tin-tuc'], function () {
+        Route::get('/', 'ArticleController@index');
+        Route::get('/add', 'ArticleController@create');
+        Route::post('/create', 'ArticleController@store');
+        Route::get('/{id}/edit', 'ArticleController@edit');
+        Route::post('/{id}/update', 'ArticleController@update');
+        Route::get('/{id}/delete', 'ArticleController@destroy');
     });
 
-    Route::group(['prefix' => 'ngan-luong'], function () {
-        Route::get('direct-payment', 'DashBoardController@doDirectPayment');
-        Route::any('success', 'DashBoardController@success');
+    Route::group(['prefix' => 'dai-ly'], function () {
+        Route::get('/', 'AgencyController@index');
+        Route::post('/{id}/update', 'AgencyController@update');
     });
 
-    Route::group(['prefix' => 'VNPAY'], function () {
-        Route::get('direct-payment', 'DashBoardController@doDirectPayment');
-    });
-
-    Route::group(['prefix' => 'Paypal'], function () {
-        Route::get('direct-payment', 'DashBoardController@paypalDirectPayment');
+    Route::group(['prefix' => 'banner'], function () {
+        Route::get('/', 'BannerController@index');
+        Route::post('/create', 'BannerController@store');
+        Route::get('/{id}/active', 'BannerController@active');
+        Route::get('/{id}/un-active', 'BannerController@unActive');
+        Route::get('/{id}/delete', 'BannerController@destroy');
     });
 });

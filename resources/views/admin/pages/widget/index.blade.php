@@ -23,9 +23,9 @@
                     <?php $_arrTemp = rand(0,2); ?>
                     <!-- Began box card -->
                     <div class="col-md-3 float-left">
-                        <div class="card @if($_arrTemp == 0) card-primary @endif @if($_arrTemp == 1) card-success @endif @if($_arrTemp == 2) card-danger @endif">
+                        <div class="card card-default">
                             <div class="card-header">
-                                <h3 class="card-title">{{ $widget->key }}</h3>
+                                <h3 class="card-title">{{ $widget->info }}</h3>
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                     </button>
@@ -37,25 +37,14 @@
                                 <form action="{{ url('/admin/widgets/'.$widget->id.'/update') }}" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Key <span class="icon-required">*</span></label>
+                                        <label for="exampleInputEmail1">Key <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" name="key" value="{{ $widget->key }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Value <span class="icon-required">*</span></label>
+                                        <label for="exampleInputEmail1">Value <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1" name="value" value="{{ $widget->value }}">
                                     </div>
-                                    @if($_arrTemp == 0)
-                                        <a class="float-right btn btn-primary" href="{{ url('/admin/widgets/'.$widget->id.'/delete') }}">Delete </a>
-                                        <input type="submit" value="Update" class="float-right btn btn-primary margin-right-5">
-                                    @endif
-                                    @if($_arrTemp == 1)
-                                        <a class="float-right btn btn-success" href="{{ url('/admin/widgets/'.$widget->id.'/delete') }}">Delete </a>
-                                        <input type="submit" value="Update" class="float-right btn btn-success margin-right-5">
-                                    @endif
-                                    @if($_arrTemp == 2)
-                                        <a class="float-right btn btn-danger" href="{{ url('/admin/widgets/'.$widget->id.'/delete') }}">Delete </a>
-                                        <input type="submit" value="Update" class="float-right btn btn-danger margin-right-5">
-                                    @endif
+                                    <input type="submit" value="Update" class="float-right btn btn-warning margin-right-5">
                                 </form>
                             </div>
                             <!-- /.card-body -->
@@ -64,35 +53,6 @@
                     </div> <!-- End box card -->
                 @endforeach
             @endif
-            <div class="col-md-3 float-left">
-                <div class="card card-primary card-warning">
-                    <div class="card-header">
-                        <h3 class="card-title">Add new Widget</h3>
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                        <!-- /.card-tools -->
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body" style="display: block;">
-                        <form action="{{ url('/admin/widgets/create') }}" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Key <span class="icon-required">*</span></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="key" placeholder="key widget">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Value <span class="icon-required">*</span></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" name="value" placeholder="value widget">
-                            </div>
-                            <input type="submit" value="Add new" class="float-right btn btn-warning">
-                        </form>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div> <!-- End box card -->
         </section>
         <!-- /.content -->
     </div>

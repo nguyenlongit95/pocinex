@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\Articles\ArticleEloquentRepository;
+use App\Repositories\Articles\ArticleRepositoryInterface;
+use App\Repositories\VirualMoney\VirualMoneyEloquentRepository;
+use App\Repositories\VirualMoney\VirualMoneyRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +32,14 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             \App\Repositories\Menus\MenusRepositoryInterface::class,
             \App\Repositories\Menus\MenusEloquentRepository::class
+        );
+        $this->app->bind(
+            ArticleRepositoryInterface::class,
+            ArticleEloquentRepository::class
+        );
+        $this->app->bind(
+            VirualMoneyRepositoryInterface::class,
+            VirualMoneyEloquentRepository::class
         );
     }
 

@@ -5,7 +5,7 @@
             <img src="{{ asset('/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="{{ url('/admin') }}" class="d-block">DashBoard</a>
+            <a href="{{ url('/admin') }}" class="d-block">Bảng điều khiển</a>
         </div>
     </div>
 
@@ -15,80 +15,51 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="{{ url('/admin') }}" class="nav-link">
+                <a href="{{ url('/admin/') }}" class="nav-link">
                     <i class="fas fa-chart-line"></i>
                     <p>
-                        DashBoard
+                        Bảng điều khiển
                     </p>
                 </a>
             </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-icons"></i>
-                    <p>
-                        Elements
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
+            <li class="nav-item">
+                <a href="{{ url('/admin/tien-ao') }}" class="nav-link">
+                    <i class="fab fa-bitcoin"></i>
+                    <p>Tiền ảo</p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="./index.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Elements No.1</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="./index2.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Elements No.1</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="./index3.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Elements No.1</p>
-                        </a>
-                    </li>
-                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('/admin/ty-suat-ngan-hang') }}" class="nav-link">
+                    <i class="fas fa-university"></i>
+                    <p>Tỷ xuất ngân hàng</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('/admin/tin-tuc') }}" class="nav-link">
+                    <i class="fas fa-newspaper"></i>
+                    <p>Tin tức</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('/admin/dai-ly') }}" class="nav-link">
+                    <i class="fas fa-building"></i>
+                    <p>Đại lý</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('/admin/banner') }}" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <p>Ảnh banner</p>
+                </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('/admin/widgets/index') }}" class="nav-link">
                     <i class="fas fa-text-width"></i>
                     <p>
-                        Widgets
+                        Cài đặt hệ thống
                         <span class="right badge badge-danger">New</span>
                     </p>
                 </a>
-            </li>
-            <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-cogs"></i>
-                    <p>
-                        Settings Options
-                        <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">3</span>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ url('admin/paygates/index') }}" class="nav-link">
-                            <i class="fab fa-amazon-pay"></i>
-                            <p>Paygates</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('admin/users/index') }}" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <p>Users</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('admin/menus/index') }}" class="nav-link">
-                            <i class="fas fa-bars"></i>
-                            <p>Menus</p>
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>
     </nav>

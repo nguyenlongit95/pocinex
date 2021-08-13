@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BaseApp</title>
+    <title>Pocinex admin panel</title>
+    <link rel="icon" href="{{ asset('/image/favicon/favicon.ico') }}"/>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -26,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('/plugins/summernote/summernote-bs4.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
     @yield('custom-css')
     <!-- Google Font: Source Sans Pro -->
@@ -92,9 +94,11 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-
+<script src="{{ asset('/dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('/dist/js/demo.js') }}"></script>
+<script src="{{ asset('/plugins/datatables/jquery.dataTables.js') }}"></script>
+
+<script src="{{ asset('/plugins/ckeditor/ckeditor.js') }}"></script>
 
 @yield('custom-js')
 
