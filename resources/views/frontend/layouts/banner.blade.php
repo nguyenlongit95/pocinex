@@ -9,11 +9,11 @@
         @if(isset($settings['banner_button_one'])) {{ $settings['banner_button_one']->value }} @endif
     </a>
     <br>
-    <a data-v-ee72d266 href="@if(isset($settings['telegram'])) {{ $settings['telegram']->value }} @endif" target="_blank" class="margin-bottom-25px mx-auto btn-start button primary borderRounded font-20 text-decoration-none main-banner-link text-uppercase banner-btn-left">
+    <a data-v-ee72d266 href="@if(isset($settings['link_btn_two'])) {{ $settings['link_btn_two']->value }} @endif" target="_blank" class="margin-bottom-25px mx-auto btn-start button primary borderRounded font-20 text-decoration-none main-banner-link text-uppercase banner-btn-left">
         @if(isset($settings['banner_button_two'])) {{ $settings['banner_button_two']->value }} @endif
     </a>
     <br>
-    <a data-v-ee72d266 href="@if(isset($settings['facebook'])) {{ $settings['facebook']->value }} @endif" target="_blank" class="margin-bottom-25px mx-auto btn-start button primary borderRounded font-20 text-decoration-none main-banner-link text-uppercase banner-btn-left">
+    <a data-v-ee72d266 href="@if(isset($settings['link_btn_three'])) {{ $settings['link_btn_three']->value }} @endif" target="_blank" class="margin-bottom-25px mx-auto btn-start button primary borderRounded font-20 text-decoration-none main-banner-link text-uppercase banner-btn-left">
         @if(isset($settings['banner_button_three'])) {{ $settings['banner_button_three']->value }} @endif
     </a>
 </div>

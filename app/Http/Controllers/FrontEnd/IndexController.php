@@ -30,11 +30,11 @@ class IndexController extends Controller
         if (!empty($settings)) {
             $arrSettings = null;
             foreach ($settings as $setting) {
-                if ($setting->key == 'facebook') {
-                    $arrSettings['facebook'] = $setting;
+                if ($setting->key == 'link_btn_two') {
+                    $arrSettings['link_btn_two'] = $setting;
                 }
-                if ($setting->key == 'telegram') {
-                    $arrSettings['telegram'] = $setting;
+                if ($setting->key == 'link_btn_three') {
+                    $arrSettings['link_btn_three'] = $setting;
                 }
                 if ($setting->key == 'zalo') {
                     $arrSettings['zalo'] = $setting;
