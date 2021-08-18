@@ -1,6 +1,6 @@
 <div class="menu-content" style="display: flex;">
     <div data-v-1b09fdb8="" id="leftNav" class="h-100 d-flex align-items-center">
-        <a href="/" aria-current="page" class="ml-1 logoMobile customBgLogo d-flex align-items-stretch router-link-exact-active router-link-active">
+        <a href="{{ url('/') }}" aria-current="page" class="ml-1 logoMobile customBgLogo d-flex align-items-stretch router-link-exact-active router-link-active">
             <img width="162" height="50" alt="" src="{{ asset('image/logo/logo.8bc073bd.svg') }}" class="">
         </a>
     </div>

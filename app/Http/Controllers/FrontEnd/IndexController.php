@@ -51,6 +51,24 @@ class IndexController extends Controller
                 if ($setting->key == 'send_notification') {
                     $arrSettings['send_notification'] = $setting;
                 }
+                if ($setting->key == 'banner_slogan') {
+                    $arrSettings['banner_slogan'] = $setting;
+                }
+                if ($setting->key == 'banner_info') {
+                    $arrSettings['banner_info'] = $setting;
+                }
+                if ($setting->key == 'banner_button_one') {
+                    $arrSettings['banner_button_one'] = $setting;
+                }
+                if ($setting->key == 'banner_button_two') {
+                    $arrSettings['banner_button_two'] = $setting;
+                }
+                if ($setting->key == 'banner_button_three') {
+                    $arrSettings['banner_button_three'] = $setting;
+                }
+                if ($setting->key == 'footer_info') {
+                    $arrSettings['footer_info'] = $setting;
+                }
             }
             View()->share('settings', $arrSettings);
         }
