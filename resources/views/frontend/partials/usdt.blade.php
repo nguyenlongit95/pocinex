@@ -5,7 +5,7 @@
                 <h1 class="font-weight-bold">Tham gia nhóm mua bán USDT</h1>
                 <br>
                 <!-- Link to group -->
-                <a href="@if(isset($settings['telegram'])) {{ $settings['telegram']->value }} @endif" target="_blank" class="btnSignIn btnMainBorder btn-large menu-item-width text-decoration-none">
+                <a href="@if(isset($settings['link_btn_three'])) {{ $settings['link_btn_three']->value }} @endif" target="_blank" class="btnSignIn btnMainBorder btn-large menu-item-width text-decoration-none">
                     <span class="font-weight-bold btn btn-danger border-radius-15">THAM GIA NGAY</span>
                 </a>
             </div>
@@ -53,9 +53,7 @@
                                         <div class="row">
                                             <label class="padding-left-none" for="loai_coin_mua">Chọn loại coin <span class="text-danger">*</span> </label>
                                             <select class="form-control back-ground-white" name="loai_coin" id="loai_coin_mua">
-                                                @foreach ($virualMoney as $value)
-                                                <option value="{{ $value->code }}">{{ $value->name }}</option>
-                                                @endforeach
+                                                <option value="{{ $virualMoney->code }}">{{ $virualMoney->name }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -95,9 +93,7 @@
                                         <div class="row">
                                             <label class="padding-left-none" for="loai_coin">Chọn loại coin <span class="text-danger">*</span> </label>
                                             <select class="form-control back-ground-white" name="loai_coin" id="loai_coin">
-                                                @foreach ($virualMoney as $value)
-                                                    <option value="{{ $value->code }}">{{ $value->name }}</option>
-                                                @endforeach
+                                                <option value="{{ $virualMoney->code }}">{{ $virualMoney->name }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -150,5 +146,5 @@
     </div>
 </div>
 
-<input type="hidden" readonly id="box-gia-mua" value="{{ $initUSDT->buy }}">
-<input type="hidden" readonly id="box-gia-ban" value="{{ $initUSDT->sell }}">
+<input type="hidden" readonly id="box-gia-mua" value="{{ $initUSDT->sell }}">
+<input type="hidden" readonly id="box-gia-ban" value="{{ $initUSDT->buy }}">

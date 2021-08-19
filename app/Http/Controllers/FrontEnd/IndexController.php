@@ -79,7 +79,7 @@ class IndexController extends Controller
         $banner = DB::table('banners')->where('status', 1)->first();
         View()->share('banner', $banner);
 
-        $virualMoney = DB::table('virtual_money')->get();
+        $virualMoney = DB::table('virtual_money')->first();
         View()->share('virualMoney', $virualMoney);
 
         $initUSDT = DB::table('virtual_money')->where('code', 'USDT')->first();

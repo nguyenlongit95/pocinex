@@ -115,7 +115,7 @@
                                     <div class="form-group">
                                         <input type="file" readonly class="form-control" id="image" name="image">
                                         <br>
-                                        <img src="{{ asset('image/articles/' . $article->image) }}" alt="{{ $article->slug }}">
+                                        <img width="160" src="{{ asset('image/articles/' . $article->image) }}" alt="{{ $article->slug }}">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

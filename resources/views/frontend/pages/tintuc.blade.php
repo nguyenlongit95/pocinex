@@ -47,6 +47,7 @@
                     <div class="row">
                         <div class="title text-center">
                             <h1 class="font-weight-bold">{!! $articleDetail->name !!}</h1>
+                            <img data-v-ee72d266="" src="{{ asset('image/articles/' . $articleDetail->image) }}">
                             <br>
                             {!! $articleDetail->description !!}
                         </div>

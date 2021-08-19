@@ -49,26 +49,38 @@
     <a id="topcontrol" title="Scroll to Top"><i class="fa fa-angle-up fa-lg fa-angle-style"></i></a>
 
     <div id="section-chat">
-        <div id="custom_zalo_chat" class="widget_text col pb-0 widget widget_custom_html">
-            <div class="zalo_chat_left custom-html-widget">
-                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
-                    <img id="img-zalo" src="{{ asset('/image/icon/LogoZalo.png') }}" alt="">
-                </a>
-            </div>
-            <div class="sitechatzalo">
-                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
-                    <span class="iczalo">&nbsp;</span>Tư vấn Zalo 24/7
-                </a>
-            </div>
+        <div id="custom_zalo_chat" class="widget_text pb-0 widget widget_custom_html">
+            <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
+                <img id="img-zalo" src="{{ asset('/image/icon/LogoZalo.png') }}" alt="">
+            </a>
         </div>
-        <div id="custom_hotline" class="widget_text col pb-0 widget widget_custom_html">
-            <div class="sitechatzalo">
-                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
-                    <span class="hot_line">Hotline:</span>
-                    <span class="number_hotline">&nbsp; @if(isset($settings['hot_line'])) {{ $settings['hot_line']->value }} @endif</span>
-                </a>
-            </div>
+
+        <!-- Messenger Plugin chat Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
         </div>
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "114892266970651");
+            chatbox.setAttribute("attribution", "biz_inbox");
+
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v11.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </div>
 </div>
 
@@ -82,9 +94,7 @@
             <div class="modal-body">
                 <label for="loai_coin_modal">Chọn loại coin: <span class="text-danger">*</span></label>
                 <select name="loai_coin_modal" class="form-control back-ground-white" id="loai_coin_modal">
-                    @foreach ($virualMoney as $value)
-                        <option value="{{ $value->code }}">{{ $value->name }}</option>
-                    @endforeach
+                        <option value="{{ $virualMoney->code }}">{{ $virualMoney->name }}</option>
                 </select>
             </div>
             <div class="modal-footer">
