@@ -69,6 +69,9 @@ class IndexController extends Controller
                 if ($setting->key == 'footer_info') {
                     $arrSettings['footer_info'] = $setting;
                 }
+                if ($setting->key == 'hot_line') {
+                    $arrSettings['hot_line'] = $setting;
+                }
             }
             View()->share('settings', $arrSettings);
         }
@@ -79,8 +82,8 @@ class IndexController extends Controller
         $virualMoney = DB::table('virtual_money')->get();
         View()->share('virualMoney', $virualMoney);
 
-        $initBtc = DB::table('virtual_money')->where('code', 'btc')->first();
-        View()->share('initBtc', $initBtc);
+        $initUSDT = DB::table('virtual_money')->where('code', 'USDT')->first();
+        View()->share('initUSDT', $initUSDT);
     }
 
     /**

@@ -14,8 +14,8 @@
                     <div class="box-header col-md-12">
                         <div class="row">
                             <div class="col-md-1 pull-left">
-                                <img src="{{ asset('image/virual_money/' . $initBtc->image) }}" class="icon-virual-money" alt="">
-                                <input type="hidden" name="coin_nav" id="coin_nav" value="{{ $initBtc->image }}">
+                                <img src="{{ asset('image/virual_money/' . $initUSDT->image) }}" class="icon-virual-money" alt="">
+                                <input type="hidden" name="coin_nav" id="coin_nav" value="{{ $initUSDT->image }}">
                             </div>
                             <div class="col-md-9"></div>
                             <div class="col-md-2 pull-right">
@@ -28,8 +28,8 @@
                             <div class="gia-ban col-md-5 col-xs-12">
                                 <i class="fa fa-cart-plus"></i> Giá bán
                                 <br><br>
-                                <h3 class="font-weight-bold"><span class="text-green" id="txt_gia_ban">{{ number_format($initBtc->sell, 0) }}</span> VNĐ</h3>
-                                <input type="hidden" id="gia_ban" value="{{ $initBtc->sell }}">
+                                <h3 class="font-weight-bold"><span class="text-green" id="txt_gia_ban">{{ number_format($initUSDT->sell, 0) }}</span> VNĐ</h3>
+                                <input type="hidden" id="gia_ban" value="{{ $initUSDT->sell }}">
                                 <br>
                                 <button class="btn btn-success">MUA NGAY</button>
                             </div>
@@ -37,8 +37,8 @@
                             <div class="gia-mua col-md-5 col-xs-12">
                                 <i class="fa fa-cart-plus"></i> Giá mua
                                 <br><br>
-                                <h3 class="font-weight-bold"><span class="text-green" id="txt_gia_mua">{{ number_format($initBtc->buy, 0) }}</span> VNĐ</h3>
-                                <input type="hidden" id="gia_ban" value="{{ $initBtc->buy }}">
+                                <h3 class="font-weight-bold"><span class="text-green" id="txt_gia_mua">{{ number_format($initUSDT->buy, 0) }}</span> VNĐ</h3>
+                                <input type="hidden" id="gia_ban" value="{{ $initUSDT->buy }}">
                                 <br>
                                 <button class="btn btn-danger">BÁN NGAY</button>
                             </div>
@@ -150,5 +150,5 @@
     </div>
 </div>
 
-<input type="hidden" readonly id="box-gia-mua" value="{{ $initBtc->buy }}">
-<input type="hidden" readonly id="box-gia-ban" value="{{ $initBtc->sell }}">
+<input type="hidden" readonly id="box-gia-mua" value="{{ $initUSDT->buy }}">
+<input type="hidden" readonly id="box-gia-ban" value="{{ $initUSDT->sell }}">

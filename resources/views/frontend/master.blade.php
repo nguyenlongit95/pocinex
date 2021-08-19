@@ -47,6 +47,29 @@
         </div>
     </main>
     <a id="topcontrol" title="Scroll to Top"><i class="fa fa-angle-up fa-lg fa-angle-style"></i></a>
+
+    <div id="section-chat">
+        <div id="custom_zalo_chat" class="widget_text col pb-0 widget widget_custom_html">
+            <div class="zalo_chat_left custom-html-widget">
+                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
+                    <img id="img-zalo" src="{{ asset('/image/icon/LogoZalo.png') }}" alt="">
+                </a>
+            </div>
+            <div class="sitechatzalo">
+                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
+                    <span class="iczalo">&nbsp;</span>Tư vấn Zalo 24/7
+                </a>
+            </div>
+        </div>
+        <div id="custom_hotline" class="widget_text col pb-0 widget widget_custom_html">
+            <div class="sitechatzalo">
+                <a target="_blank" href="https://zalo.me/0855292777" rel="nofollow">
+                    <span class="hot_line">Hotline:</span>
+                    <span class="number_hotline">&nbsp; @if(isset($settings['hot_line'])) {{ $settings['hot_line']->value }} @endif</span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->
